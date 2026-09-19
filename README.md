@@ -35,16 +35,14 @@ Useful focused commands:
 
 Never commit .env or other credentials. Keep secrets in the local environment or the deployment secret store.
 
-## Source builds
+## Source builds (retired)
 
-- Indore01: https://github.com/CRAJKUMARSINGH/Indore01
-- Indore02: https://github.com/CRAJKUMARSINGH/Indore02
-- Indore03: https://github.com/CRAJKUMARSINGH/Indore03
-- Indore04: https://github.com/CRAJKUMARSINGH/Indore04
-- Indore05: https://github.com/CRAJKUMARSINGH/Indore05
-- Indore06: https://github.com/CRAJKUMARSINGH/Indore06
-- Indore07: https://github.com/CRAJKUMARSINGH/Indore07
-- Indore08: https://github.com/CRAJKUMARSINGH/Indore08
-- Indore09: https://github.com/CRAJKUMARSINGH/Indore09
-- Integration ledgers: docs/integrations/INDORE04-06.md and docs/integrations/INDORE07-09.md
-- IndiLingo: https://github.com/CRAJKUMARSINGH/IndiLingo
+All milestone repositories from the Indore build series have been fully integrated into IndiLingo and retired. Integration ledgers are in `docs/integrations/`.
+
+- Indore01–Indore03: early prototypes, patterns absorbed
+- Indore04 *(retired)*: mobile lesson flow, onboarding, review, leaderboard, profile
+- Indore05 *(retired)*: web platform architecture, admin/quiz apps, API route coverage
+- Indore06 *(retired)*: evaluation report, leaderboard/stats patterns, curriculum seeding
+- Indore07–Indore09: advanced feature iterations, absorbed into packages
+
+See MERGE_SUMMARY.md for the full integration record.
