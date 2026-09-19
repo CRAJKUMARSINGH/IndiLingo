@@ -1,9 +1,43 @@
 # IndiLingo
 
-Learn Indian languages through short lessons, gamified progress, daily streaks, and adaptive review.
+IndiLingo is a gamified learning platform for Indian languages. It combines short lessons, native-script practice, translation exercises, daily streaks, adaptive review, progress tracking, and leaderboards in one product.
 
-## Indore Series
+This repository is the consolidated implementation of the strongest work from the Indore01, Indore02, and Indore03 builds. Those repositories remain historical references; active development happens here.
 
-This repo is part of the `Indore01` → `Indore12` public build series. For the most complete "candidate view" also see:
+## Architecture
 
-- Final IndiLingo: https://github.com/CRAJKUMARSINGH/Indore12
+- apps/web — the canonical Vite + React web client with onboarding, language selection, learning paths, lesson player, review queue, leaderboard, and profile flows.
+- packages/api-server — the canonical Express API and route composition.
+- packages/db — the canonical Drizzle/PostgreSQL schema and database client.
+- packages/curriculum — shared curriculum types and seed data.
+- lib/api-spec — OpenAPI source of truth.
+- lib/api-zod — generated runtime validation types.
+- lib/api-client-react — generated React Query client.
+
+The repository deliberately has one frontend, one API server, and one database package. Generated or experimental agent snapshots are not part of the runtime workspace.
+
+## Development
+
+Requirements: Node.js 24 or newer and pnpm.
+
+1. Copy .env.example to .env and set DATABASE_URL for database-backed features.
+2. Run pnpm install.
+3. Run pnpm dev to start the web app and API server.
+4. Run pnpm run typecheck before committing.
+5. Run pnpm run build for a production build.
+
+Useful focused commands:
+
+- pnpm run dev:web — web client only.
+- pnpm run dev:api — API server only.
+- pnpm run seed — seed the canonical curriculum.
+- pnpm run serve — preview the built web client.
+
+Never commit .env or other credentials. Keep secrets in the local environment or the deployment secret store.
+
+## Source builds
+
+- Indore01: https://github.com/CRAJKUMARSINGH/Indore01
+- Indore02: https://github.com/CRAJKUMARSINGH/Indore02
+- Indore03: https://github.com/CRAJKUMARSINGH/Indore03
+- IndiLingo: https://github.com/CRAJKUMARSINGH/IndiLingo
