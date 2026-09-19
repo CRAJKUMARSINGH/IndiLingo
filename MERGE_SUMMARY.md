@@ -1,6 +1,6 @@
 # IndiLingo integration record
 
-This commit consolidates the usable implementation from Indore01, Indore02, and Indore03 into the IndiLingo runtime.
+This commit consolidates the usable implementation from Indore01 through Indore06 into the IndiLingo runtime. The Indore04–06 review and mapping is recorded in docs/integrations/INDORE04-06.md.
 
 ## Kept as the source of truth
 
@@ -24,4 +24,4 @@ This commit consolidates the usable implementation from Indore01, Indore02, and 
 - Typecheck covers apps, shared libraries, packages, scripts, and tests.
 - Database references and seed scripts now use @indilingo/db consistently.
 
-The source repositories are preserved as historical references; this repository is the active integration target.
+The source repositories are preserved as historical references until the destination is verified; this repository is the active integration target.
