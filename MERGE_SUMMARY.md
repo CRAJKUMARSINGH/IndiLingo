@@ -12,6 +12,9 @@ The following milestone repositories have been fully reviewed, integrated, and r
 
 | Repo | Last reviewed commit | Key contribution |
 | --- | --- | --- |
+| Indore01 | `1fb43d71246baa10065f4ea9a22dfab1cb35d032` | ACTION_PLAN_200_WEEKS.md — 200-week strategic product roadmap |
+| Indore02 | `d6ed16776c7b46fccd4da813dda55e5bfeee44e2` | Platform-wide stats API (GET /stats/overview + /stats/unit-progress), full DB schema, contract-first architecture, Indori localization copy |
+| Indore03 | `07e2918c4e0a219f2814a3a2af536b6427d2fb7e` | React Native/Expo mobile app, offline-first state (wordBank/hearts/badges), curriculum data with Devanagari script, haptic exercise flow, podium leaderboard, weak-word review |
 | Indore04 | `aeef47d0c1113d25101f4cdf0994573bc9b5f463` | Mobile lesson flow, onboarding, review, leaderboard, profile, script practice, curriculum patterns |
 | Indore05 | `85d33531860ae18fed7f65c85ffc0bc6058fc1c0` | Web learning/progress experience, API route coverage, code-junction learning material |
 | Indore06 | `25967a8b59441e042d5c8aa5fc797db6bd2bfe12` | Evaluation findings, leaderboard/stats/progress patterns, curriculum seeding material |

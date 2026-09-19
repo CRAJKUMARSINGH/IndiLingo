@@ -39,10 +39,12 @@ Never commit .env or other credentials. Keep secrets in the local environment or
 
 All milestone repositories from the Indore build series have been fully integrated into IndiLingo and retired. Integration ledgers are in `docs/integrations/`.
 
-- Indore01–Indore03: early prototypes, patterns absorbed
+- Indore01 *(retired)*: 200-week strategic roadmap, earliest api-server scaffold
+- Indore02 *(retired)*: platform-wide stats API, full DB schema, contract-first architecture, Indori localization
+- Indore03 *(retired)*: React Native/Expo app, offline-first state, curriculum data with Devanagari script
 - Indore04 *(retired)*: mobile lesson flow, onboarding, review, leaderboard, profile
 - Indore05 *(retired)*: web platform architecture, admin/quiz apps, API route coverage
 - Indore06 *(retired)*: evaluation report, leaderboard/stats patterns, curriculum seeding
 - Indore07–Indore09: advanced feature iterations, absorbed into packages
 
-See MERGE_SUMMARY.md for the full integration record.
+See `MERGE_SUMMARY.md` and `docs/integrations/` for the full integration record.
