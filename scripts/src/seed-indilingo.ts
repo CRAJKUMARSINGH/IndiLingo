@@ -1,11 +1,11 @@
-import { db } from "@workspace/db";
+import { db } from "@indilingo/db";
 import {
   languagesTable,
   unitsTable,
   lessonsTable,
   exercisesTable,
   usersTable,
-} from "@workspace/db";
+} from "@indilingo/db";
 
 type ExerciseType = "script_practice" | "multiple_choice" | "translate" | "fill_blank" | "match_pairs";
 

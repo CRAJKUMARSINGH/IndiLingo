@@ -9,7 +9,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@workspace/db": "workspace:*"
+    "@indilingo/db": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",

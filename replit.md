@@ -1,45 +1,31 @@
-# [Project name]
+# IndiLingo
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+IndiLingo is a gamified Indian-language learning platform with short lessons, script practice, adaptive review, streaks, and leaderboards.
 
-## Run & Operate
+## Run and operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- pnpm dev — start the web client and API server.
+- pnpm run dev:web — start only the Vite web client.
+- pnpm run dev:api — build and start only the API server.
+- pnpm run typecheck — typecheck shared libraries and all active workspace packages.
+- pnpm run build — typecheck and build the active workspace.
+- pnpm run seed — seed the canonical curriculum.
+- pnpm --filter @indilingo/db run push — push schema changes to a development database.
 
-## Stack
-
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+Required environment: DATABASE_URL for database-backed features. Keep secrets in .env locally or in the deployment secret store; never commit them.
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- apps/web: canonical React/Vite client.
+- packages/api-server: Express routes and API entrypoint.
+- packages/db: Drizzle schema and database client.
+- packages/curriculum: curriculum types and seed data.
+- lib/api-spec: OpenAPI contract.
+- lib/api-zod and lib/api-client-react: generated validation and client libraries.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- The active runtime has one frontend, one API server, and one database package.
+- OpenAPI is the contract source; generated Zod and React Query clients are shared by the app.
+- The database schema lives in packages/db; the old duplicate lib/db package is not part of the workspace.
+- Learning progress and mistakes are persisted through the API, while the web client provides a responsive lesson experience.

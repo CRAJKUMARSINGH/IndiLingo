@@ -36,8 +36,6 @@ minimumReleaseAgeExclude:
 
 packages:
   - apps/*
-  - artifacts/*
-  - artifacts/indori-wuolingo-web
   - lib/*
   - lib/integrations/*
   - packages/*
