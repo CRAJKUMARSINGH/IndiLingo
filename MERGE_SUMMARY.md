@@ -1,6 +1,6 @@
 # IndiLingo integration record
 
-This commit consolidates the usable implementation from Indore01 through Indore06 into the IndiLingo runtime. The Indore04–06 review and mapping is recorded in docs/integrations/INDORE04-06.md.
+This commit consolidates the usable implementation from Indore01 through Indore09 into the IndiLingo runtime. The Indore04–06 review and mapping is recorded in docs/integrations/INDORE04-06.md and docs/integrations/INDORE07-09.md.
 
 ## Kept as the source of truth
 
