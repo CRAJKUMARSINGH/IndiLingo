@@ -2,12 +2,26 @@ import React from 'react';
 import { useLocation, Redirect } from 'wouter';
 import { useListLanguages } from '@workspace/api-client-react';
 import { useStore } from '@/store';
+import { LANGUAGES } from '@/data/languages';
+import { useProgress } from '@/lib/progress';
 
 export function LanguageSelection() {
   const [, setLocation] = useLocation();
   const userId = useStore((state) => state.userId);
   const setSelectedLanguageId = useStore((state) => state.setSelectedLanguageId);
-  const { data: languages, isLoading } = useListLanguages();
+  const { setLanguage } = useProgress();
+  const hasApi = Boolean(import.meta.env.VITE_API_URL);
+  const languagesQuery = useListLanguages({ query: { enabled: hasApi } });
+  const fallbackLanguages = LANGUAGES.map((language, index) => ({
+    id: language.code,
+    name: language.name,
+    nativeName: language.native,
+    flagEmoji: ['🇮🇳', '🇮🇳', '🇮🇳', '🇮🇳'][index % 4],
+    scriptName: language.script,
+    colorHex: ['#0f766e', '#ea580c', '#7c3aed', '#db2777'][index % 4],
+  }));
+  const languages = languagesQuery.data?.length ? languagesQuery.data : fallbackLanguages;
+  const isLoading = hasApi && languagesQuery.isLoading && !languagesQuery.isError;
 
   if (!userId) {
     return <Redirect to="/" />;
@@ -15,6 +29,8 @@ export function LanguageSelection() {
 
   const handleSelect = (id: string) => {
     setSelectedLanguageId(id);
+    const localLanguage = LANGUAGES.find((language) => language.code === id);
+    if (localLanguage) setLanguage(localLanguage.code);
     setLocation('/learn');
   };
 

@@ -7,18 +7,36 @@ export function Onboarding() {
   const [, setLocation] = useLocation();
   const setUserId = useStore((state) => state.setUserId);
   const [name, setName] = useState('');
+  const hasApi = Boolean(import.meta.env.VITE_API_URL);
   
   const createUser = useCreateUser();
+
+  const startLocalSession = () => {
+    const localId = globalThis.crypto?.randomUUID?.() ?? `local-${Date.now()}`;
+    setUserId(localId);
+    setLocation('/languages');
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
 
+    // Netlify can host the frontend without an API. Keep the bundled
+    // curriculum usable locally, while retaining the server-backed path
+    // whenever VITE_API_URL is configured.
+    if (!hasApi) {
+      startLocalSession();
+      return;
+    }
+
     createUser.mutate({ data: { name: name.trim() } }, {
       onSuccess: (user) => {
         setUserId(user.id);
         setLocation('/languages');
-      }
+      },
+      onError: () => {
+        startLocalSession();
+      },
     });
   };
 
