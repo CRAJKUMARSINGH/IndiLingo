@@ -18,13 +18,6 @@ type ExerciseType = "script_practice" | "multiple_choice" | "translate" | "fill_
     romanization?: string;
     videoUrl?: string;
   }
-  type: ExerciseType;
-  question: string;
-  correctAnswer: string;
-  options: string[];
-  nativeScript?: string;
-  romanization?: string;
-}
 
 interface LessonSeed {
   title: string;
@@ -569,14 +562,17 @@ async function seed() {
   console.log("Seeding 15 languages with full curriculum...");
 
   for (const langData of LANGUAGES) {
+    const languageId = langData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     const [lang] = await db
       .insert(languagesTable)
       .values({
+        id: languageId,
         name: langData.name,
         nativeName: langData.nativeName,
         flagEmoji: langData.flagEmoji,
         scriptName: langData.scriptName,
-        colorHex: langData.colorHex,
+        colorTheme: langData.colorHex,
+        description: `Learn ${langData.name} through practical, bite-sized lessons.`,
       })
       .returning();
 
@@ -587,10 +583,11 @@ async function seed() {
       const [unit] = await db
         .insert(unitsTable)
         .values({
+          id: `${lang.id}-unit-${ui + 1}`,
           languageId: lang.id,
           title: unitData.title,
           description: unitData.description,
-          orderIndex: ui + 1,
+          order: ui + 1,
           unitType: unitData.unitType,
         })
         .returning();
@@ -600,22 +597,26 @@ async function seed() {
         const [lesson] = await db
           .insert(lessonsTable)
           .values({
+            id: `${unit.id}-lesson-${li + 1}`,
             unitId: unit.id,
             title: lessonData.title,
-            orderIndex: li + 1,
+            order: li + 1,
             xpReward: lessonData.xpReward,
           })
           .returning();
 
-        for (const exData of lessonData.exercises) {
+        for (let ei = 0; ei < lessonData.exercises.length; ei++) {
+          const exData = lessonData.exercises[ei];
           await db.insert(exercisesTable).values({
+            id: `${lesson.id}-exercise-${ei + 1}`,
             lessonId: lesson.id,
             type: exData.type,
-            question: exData.question,
+            prompt: exData.question,
             correctAnswer: exData.correctAnswer,
             options: exData.options,
             nativeScript: exData.nativeScript ?? null,
             romanization: exData.romanization ?? null,
+            order: ei + 1,
           });
         }
       }

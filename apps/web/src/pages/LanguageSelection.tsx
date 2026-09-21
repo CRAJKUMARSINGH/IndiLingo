@@ -13,7 +13,7 @@ export function LanguageSelection() {
     return <Redirect to="/" />;
   }
 
-  const handleSelect = (id: number) => {
+  const handleSelect = (id: string) => {
     setSelectedLanguageId(id);
     setLocation('/learn');
   };

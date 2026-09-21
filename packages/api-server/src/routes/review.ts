@@ -6,8 +6,8 @@ import {
   RecordMistakeBody,
   MasterExerciseParams,
   MasterExerciseBody,
-  GetReviewExercisesParams,
-  GetReviewExercisesResponse,
+  GetReviewQueueParams,
+  GetReviewQueueResponse,
 } from "@workspace/api-zod";
 import { sql } from "drizzle-orm";
 
@@ -65,7 +65,7 @@ router.post("/exercises/:exerciseId/master", async (req, res): Promise<void> => 
 });
 
 router.get("/users/:userId/review", async (req, res): Promise<void> => {
-  const params = GetReviewExercisesParams.safeParse(req.params);
+  const params = GetReviewQueueParams.safeParse(req.params);
   if (!params.success) {
     res.status(400).json({ error: params.error.message });
     return;
@@ -90,12 +90,21 @@ router.get("/users/:userId/review", async (req, res): Promise<void> => {
     .where(sql`${exercisesTable.id} = ANY(${exerciseIds})`);
 
   res.json(
-    GetReviewExercisesResponse.parse(
-      exercises.map((e) => ({
-        ...e,
+    GetReviewQueueResponse.parse(
+      exercises.map((e) => {
+        const mistake = mistakes.find((item) => item.exerciseId === e.id);
+        return {
+        id: e.id,
+        lessonId: e.lessonId,
+        type: e.type,
+        question: e.prompt,
+        correctAnswer: e.correctAnswer,
+        options: e.options,
         romanization: e.romanization ?? null,
         nativeScript: e.nativeScript ?? null,
-      })),
+        missedCount: mistake?.missedCount ?? 0,
+        };
+      }),
     ),
   );
 });

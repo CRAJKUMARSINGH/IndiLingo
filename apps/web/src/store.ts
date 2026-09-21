@@ -2,10 +2,10 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface AppState {
-  userId: number | null;
-  selectedLanguageId: number | null;
-  setUserId: (id: number | null) => void;
-  setSelectedLanguageId: (id: number | null) => void;
+  userId: string | null;
+  selectedLanguageId: string | null;
+  setUserId: (id: string | null) => void;
+  setSelectedLanguageId: (id: string | null) => void;
   clearState: () => void;
 }
 
