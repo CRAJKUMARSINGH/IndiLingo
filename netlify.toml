@@ -2,6 +2,7 @@
 # The API runs separately; set VITE_API_URL in the Netlify site environment.
 
 [build]
+  base = "."
   command = "pnpm install --frozen-lockfile && pnpm run build:netlify"
   publish = "apps/web/dist/public"
 
