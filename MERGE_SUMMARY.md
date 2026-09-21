@@ -43,3 +43,14 @@ The following milestone repositories have been fully reviewed, integrated, and r
 - Database references and seed scripts now use @indilingo/db consistently.
 
 Active development continues in this repository. All Indore milestone repos are retired.
+
+
+## Indore10–12
+
+Indore10–12 were reviewed as parallel source builds and integrated into the canonical monorepo without importing duplicate artifact workspaces. Their curriculum, script-first lesson experience, review/mistake tracking, generated API work, and deployment assets were mapped to the existing canonical app, API, database, and contract packages. The detailed ledger is in docs/integrations/INDORE10-12.md.
+
+| Repo | Reviewed head | Integration status |
+| --- | --- | --- |
+| Indore10 | 0038d8f6ec61089d7b33d54809896736bc705963 | Integrated; pending source-repository retirement |
+| Indore11 | b000e918dfc4ed9673159844217aca2886ad76cc | Integrated; pending source-repository retirement |
+| Indore12 | 4276fa2bb2f9deca08f6492af30dac0ff75ff157 | Integrated; pending source-repository retirement |

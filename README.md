@@ -2,7 +2,7 @@
 
 IndiLingo is a gamified learning platform for Indian languages. It combines short lessons, native-script practice, translation exercises, daily streaks, adaptive review, progress tracking, and leaderboards in one product.
 
-This repository is the consolidated implementation of the strongest work from the Indore01–Indore09 build series. The milestone repositories remain historical references; active development happens here.
+This repository is the consolidated implementation of the strongest work from the Indore01–Indore12 build series. The milestone repositories remain historical references; active development happens here.
 
 ## Architecture
 
@@ -48,3 +48,8 @@ All milestone repositories from the Indore build series have been fully integrat
 - Indore07–Indore09: advanced feature iterations, absorbed into packages
 
 See `MERGE_SUMMARY.md` and `docs/integrations/` for the full integration record.
+
+
+## Indore10–12 consolidation
+
+The Indore10, Indore11, and Indore12 source builds have been reviewed and integrated into the canonical runtime. See docs/integrations/INDORE10-12.md for the source-to-destination ledger and the deliberate duplicate-workspace exclusions.
