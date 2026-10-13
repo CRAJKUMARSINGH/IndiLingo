@@ -282,7 +282,7 @@ importers:
         specifier: ^7.3.0
         version: 7.4.1(@types/babel__core@7.20.5)
       workbox-window:
-        specifier: ^7.3.0
+        specifier: ^7.4.1
         version: 7.4.1
       wouter:
         specifier: ^3.3.5
