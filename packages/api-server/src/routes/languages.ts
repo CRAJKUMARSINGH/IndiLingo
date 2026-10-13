@@ -11,7 +11,18 @@ router.get("/languages", async (req, res): Promise<void> => {
     .from(languagesTable)
     .orderBy(asc(languagesTable.order));
 
-  res.json(ListLanguagesResponse.parse(langs));
+  res.json(
+    ListLanguagesResponse.parse(
+      langs.map((language) => ({
+        id: language.id,
+        name: language.name,
+        nativeName: language.nativeName,
+        flagEmoji: language.flagEmoji,
+        scriptName: language.scriptName,
+        colorHex: language.colorTheme,
+      })),
+    ),
+  );
 });
 
 export default router;

@@ -12,7 +12,8 @@
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./apps/**\" --filter \"./lib/**\" --filter \"./packages/**\" --filter \"./scripts\" --filter \"./tests/**\" --if-present run typecheck",
     "seed": "tsx packages/curriculum/src/seed-db.ts",
     "test:robotic": "pnpm --filter @indilingo/robotic-tests run test",
-    "serve": "pnpm --filter @indilingo/web run serve"
+    "serve": "pnpm --filter @indilingo/web run serve",
+    "build:netlify": "pnpm --filter @indilingo/web run build"
   },
   "private": true,
   "dependencies": {

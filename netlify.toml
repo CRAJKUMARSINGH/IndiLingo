@@ -1,29 +1,30 @@
+# IndiLingo production frontend deployment on Netlify.
+# The API runs separately; set VITE_API_URL in the Netlify site environment.
+
 [build]
-  command = "npm run build:netlify"
-  publish = "artifacts/indilingo/dist"
-  functions = "netlify/functions-dist"
+  base = "."
+  command = "pnpm install --frozen-lockfile && pnpm run build:netlify"
+  publish = "apps/web/dist/public"
 
-[functions]
-  node_bundler = "esbuild"
+[build.environment]
+  NODE_VERSION = "20"
 
-# Route /api/* to the serverless function
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api"
-  status = 200
-  force = true
-
-# SPA fallback — must come after the API redirect
+# Vite SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Baseline security headers
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Immutable caching for Vite assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -16,6 +16,7 @@ router.get("/leaderboard", async (req, res): Promise<void> => {
     userId: u.id,
     name: u.name,
     xp: u.xp,
+    streak: u.streak,
     rank: idx + 1,
   }));
 
