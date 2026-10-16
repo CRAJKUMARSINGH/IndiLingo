@@ -66,7 +66,7 @@ function matchPairs(question: string, left: string[], right: string[]): Exercise
   };
 }
 
-const LANGUAGES: LanguageSeed[] = [
+export const LANGUAGES: LanguageSeed[] = [
   {
     name: "Hindi",
     nativeName: "हिन्दी",

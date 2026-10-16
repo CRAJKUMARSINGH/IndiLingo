@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'wouter';
-import { Home, BookOpen, Trophy, User, LibraryBig } from 'lucide-react';
+import { Home, Trophy, User, LibraryBig } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Navigation() {

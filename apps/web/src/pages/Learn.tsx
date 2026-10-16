@@ -1,8 +1,5 @@
-import React from 'react';
 import { useLocation, Redirect } from 'wouter';
 import { useStore } from '@/store';
-import { Check, Lock, Star } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { AppShell } from '@/components/AppShell';
 import { TopBar } from '@/components/TopBar';
 import { getLanguage, UNITS, type UnitKey } from '@/data/languages';
@@ -12,7 +9,7 @@ import { LESSONS_PER_UNIT } from '@/lib/lessons';
 export function Learn() {
   const [, setLocation] = useLocation();
   const userId = useStore((state) => state.userId);
-  const { state, hydrated, setLanguage } = useProgress();
+  const { state, hydrated } = useProgress();
   const lang = getLanguage(state.currentLang);
 
   if (!userId) return <Redirect to="/" />;

@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useRoute, useLocation } from 'wouter';
-import { useStore } from '@/store';
-import { Star, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { AppShell } from '@/components/AppShell';
-import { TopBar } from '@/components/TopBar';
 import { getLanguage, type UnitKey } from '@/data/languages';
 import { useProgress } from '@/lib/progress';
-import { buildLesson, type Exercise, LESSONS_PER_UNIT } from '@/lib/lessons';
+import { buildLesson, type Exercise } from '@/lib/lessons';
 
 export function Lesson() {
   const [, params] = useRoute('/lesson/:unit');
   const [, setLocation] = useLocation();
-  const userId = useStore((state) => state.userId);
   const { state, hydrated, completeLesson } = useProgress();
   const lang = getLanguage(state.currentLang);
   

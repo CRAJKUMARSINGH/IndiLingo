@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Sidebar, SidebarHeader, SidebarContent, SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarFooter } from '@/components/ui/sidebar';
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const setUserId = useStore(state => state.setUserId);
   const setSelectedLanguageId = useStore(state => state.setSelectedLanguageId);
 

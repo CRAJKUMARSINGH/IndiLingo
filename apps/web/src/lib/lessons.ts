@@ -89,7 +89,6 @@ export function buildLesson(lang: Language, unit: UnitKey, lessonIndex = 0): Exe
     const words = rotate(lang.words, lessonIndex);
     const meaningPool = lang.words.map((w) => w.meaning);
     const nativePool = lang.words.map((w) => w.native);
-    const romanPool = lang.words.map((w) => w.roman);
     const out: Exercise[] = [];
     
     for (const w of shuffle(rng, words).slice(0, 6)) {

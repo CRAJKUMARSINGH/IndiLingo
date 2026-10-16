@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useLocation, Redirect } from 'wouter';
 import { useStore } from '@/store';
 import { Check } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import confetti from 'canvas-confetti';
 import { AppShell } from '@/components/AppShell';
 import { TopBar } from '@/components/TopBar';

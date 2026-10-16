@@ -35,12 +35,14 @@ const notoTamil = "'Noto Sans Tamil', serif";
 const notoTelugu = "'Noto Sans Telugu', serif";
 const notoDev = "'Noto Sans Devanagari', serif";
 const notoBn = "'Noto Sans Bengali', serif";
-const notoGu = "'Noto Sans Gujarati', serif";
-const notoKn = "'Noto Sans Kannada', serif";
-const notoMl = "'Noto Sans Malayalam', serif";
-const notoPa = "'Noto Sans Gurmukhi', serif";
-const notoOr = "'Noto Sans Oriya', serif";
-const notoAr = "'Noto Sans Arabic', serif";
+// Font families for languages not yet implemented in the bundled curriculum
+// (kept here for reference when expanding LANGUAGES below):
+// notoGu  = "'Noto Sans Gujarati', serif"
+// notoKn  = "'Noto Sans Kannada', serif"
+// notoMl  = "'Noto Sans Malayalam', serif"
+// notoPa  = "'Noto Sans Gurmukhi', serif"
+// notoOr  = "'Noto Sans Oriya', serif"
+// notoAr  = "'Noto Sans Arabic', serif"
 
 export const LANGUAGES: Language[] = [
   {

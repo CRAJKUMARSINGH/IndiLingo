@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGetLeaderboard } from '@workspace/api-client-react';
 import { useStore } from '@/store';
-import { Trophy, Flame, Medal } from 'lucide-react';
+import { Trophy, Flame } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Leaderboard() {
@@ -43,8 +43,6 @@ export function Leaderboard() {
       <div className="flex items-end justify-center gap-2 md:gap-4 mb-12 h-64 mt-10">
         {podiumOrder.map((entry, idx) => {
           if (!entry) return <div key={idx} className="w-24 md:w-32 flex-1" />;
-          
-          const isUser = entry.userId === userId;
           
           return (
             <div key={entry.userId} className="flex flex-col items-center flex-1 w-24 md:w-32 relative">

@@ -1,5 +1,5 @@
 import { Router, type IRouter } from "express";
-import { count, avg, gt, eq } from "drizzle-orm";
+import { count, avg, gt } from "drizzle-orm";
 import {
   db,
   usersTable,

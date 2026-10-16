@@ -287,13 +287,13 @@ function buildSimpleLang(
     order: i + 1,
   }));
 
-  const foodOptions = foods.map((f) => f.native);
+  const foodOptions = foods.map((f) => f.english);
   const foodExercises: typeof exercisesTable.$inferInsert[] = foods.slice(0, 5).map((f, i) => ({
     id: `${langId}-food-l1-e${i + 1}`,
     lessonId: `${langId}-food-l1`,
     type: "translate" as const,
     prompt: `Translate: ${f.native} (${f.romanization})`,
-    options: shuffle([f.english, ...["Sun", "Water", "Mother", "House", "Food", "Tree", "Book", "Hand"].filter((x) => x !== f.english).slice(0, 3)]),
+    options: shuffle([f.english, ...foodOptions.filter((e) => e !== f.english).slice(0, 3)]),
     correctAnswer: f.english,
     romanization: f.romanization,
     nativeScript: f.native,
